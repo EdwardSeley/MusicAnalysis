@@ -78,9 +78,9 @@ print("Camila Cabello")
 GENRE_LIST = ["r-b-hip-hop", "country", "rock", "latin", "dance-electronic", "christian", "gospel"]
 ...
 genre = lc.Genre("r-b-hip-hop") #Gets the songs for the genre's top 50 songs for the past 2 years (must be from GENRE_LIST) 
-genre.get_artist_list()
+genre.artist_list
 [out]: "Bruno Mars & Cardi B", "Miguel", "Chris Brown"...
-genre.get_song_list()
+genre.song_list
 [out]: "Finesse (remix)", "Skywalker", "Pills & Automobiles"...
 ```
 
