@@ -164,7 +164,7 @@ class Billboard:
             chart = billboard.ChartData('hot-100', chart.previousDate)
 
     def get_artist_list(self):
-        return set([song.artist() for song in self.song_list])
+        return set([song.artist for song in self.song_list])
     
     def __len__(self):
         return len(self.song_list)
