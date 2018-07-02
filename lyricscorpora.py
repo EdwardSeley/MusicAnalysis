@@ -200,6 +200,8 @@ def get_lyrics(song):
         page = requests.get(result_url)
         soup = BeautifulSoup(page.text, 'html.parser')
         lyric_box = soup.find('div', {'class': 'lyricbox'})
+        if lyric_box is None:
+            raist NoLyricsException("Could not find lyrics on {}".format(result_url))
         for br in lyric_box.findAll('br'):
             br.replace_with('\n')
         lyrics = lyric_box.text.strip
