@@ -157,7 +157,7 @@ class Billboard:
                         artist_name = artist_name[:artist_name.find(cut_off)]
                 song = Song(song_title=chart_song.title, song_artist=artist_name)
                 if song not in self.song_list:
-                    self.song_list = self.song_list.append(song)
+                    self.song_list.append(song)
                 song_index += 1
             week_num += 1
             song_index = 0
