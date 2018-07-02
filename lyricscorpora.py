@@ -204,7 +204,7 @@ def get_lyrics(song):
             raist NoLyricsException("Could not find lyrics on {}".format(result_url))
         for br in lyric_box.findAll('br'):
             br.replace_with('\n')
-        lyrics = lyric_box.text.strip
+        lyrics = lyric_box.text.strip()
     except NoLyricsException:
         lyrics = ""
     song.lyrics = lyrics
