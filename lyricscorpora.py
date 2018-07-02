@@ -161,7 +161,7 @@ class Billboard:
                 song_index += 1
             week_num += 1
             song_index = 0
-            chart = billboard.ChartData('hot-100', chart.previous_date)
+            chart = billboard.ChartData('hot-100', chart.previousDate)
 
     def get_artist_list(self):
         return set([song.artist() for song in self.song_list])
