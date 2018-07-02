@@ -157,14 +157,14 @@ class Billboard:
                         artist_name = artist_name[:artist_name.find(cut_off)]
                 song = Song(song_title=chart_song.title, song_artist=artist_name)
                 if song not in self.song_list:
-                    self.song_list = self.song_list.append(song)
+                    self.song_list.append(song)
                 song_index += 1
             week_num += 1
             song_index = 0
-            chart = billboard.ChartData('hot-100', chart.previous_date)
+            chart = billboard.ChartData('hot-100', chart.previousDate)
 
     def get_artist_list(self):
-        return set([song.artist() for song in self.song_list])
+        return set([song.artist for song in self.song_list])
     
     def __len__(self):
         return len(self.song_list)
@@ -200,9 +200,11 @@ def get_lyrics(song):
         page = requests.get(result_url)
         soup = BeautifulSoup(page.text, 'html.parser')
         lyric_box = soup.find('div', {'class': 'lyricbox'})
+        if lyric_box is None:
+            raist NoLyricsException("Could not find lyrics on {}".format(result_url))
         for br in lyric_box.findAll('br'):
             br.replace_with('\n')
-        lyrics = lyric_box.text.strip
+        lyrics = lyric_box.text.strip()
     except NoLyricsException:
         lyrics = ""
     song.lyrics = lyrics
